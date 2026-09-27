@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111312">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Two choices. One coin. A tactile, offline decision maker.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="The Coin">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>The Coin Has Spoken</title>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="The Coin Has Spoken home"><span class="brand-mark" aria-hidden="true">C<span class="brand-dot">·</span></span><span class="brand-name">THE COIN <span>HAS SPOKEN</span></span></a>
+      <button id="sound-toggle" class="sound-toggle" type="button" aria-label="Mute sound" aria-pressed="true" title="Sound on">
+        <svg class="sound-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path class="sound-waves" d="M16 9a4 4 0 0 1 0 6m2.5-9a8 8 0 0 1 0 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path class="sound-slash" d="m17 9 5 6m0-6-5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Sound <span id="sound-label">on</span></span>
+      </button>
+    </header>
+
+    <main class="content">
+      <div class="eyebrow"><span class="eyebrow-line"></span> TWO CHOICES. ONE COIN. <span class="eyebrow-line"></span></div>
+      <section class="coin-stage" aria-label="Coin toss area">
+        <div class="stage-glow" aria-hidden="true"></div>
+        <div id="coin-shadow" class="coin-shadow" aria-hidden="true"></div>
+        <div id="surface-flash" class="surface-flash" aria-hidden="true"></div>
+        <div id="coin-lift" class="coin-lift">
+          <button id="coin-button" class="coin-button" type="button" aria-label="Tap or flick up to toss coin">
+            <span id="coin" class="coin" aria-hidden="true">
+              <span id="coin-edge" class="coin-edge"></span>
+              <span class="coin-face heads-face"><span class="reflection"></span></span>
+              <span class="coin-face tails-face"><span class="reflection"></span></span>
+            </span>
+          </button>
+        </div>
+        <span class="stage-caption" aria-hidden="true">TAP OR FLICK UP</span>
+      </section>
+
+      <section class="decision" aria-label="Your two choices">
+        <label class="choice-row" for="heads-choice"><span class="choice-side"><span class="side-initial">H</span><span>HEADS</span></span><input id="heads-choice" type="text" maxlength="70" autocomplete="off" spellcheck="false" placeholder="Choice A" aria-label="Choice for heads"><span class="choice-underline"></span></label>
+        <label class="choice-row" for="tails-choice"><span class="choice-side"><span class="side-initial">T</span><span>TAILS</span></span><input id="tails-choice" type="text" maxlength="70" autocomplete="off" spellcheck="false" placeholder="Choice B" aria-label="Choice for tails"><span class="choice-underline"></span></label>
+      </section>
+
+      <button id="toss-button" class="toss-button" type="button"><span>TOSS THE COIN</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="result-slot" aria-live="off">
+        <div id="result" class="result" aria-hidden="true"><span id="result-side" class="result-side"></span><span id="result-choice" class="result-choice"></span></div>
+        <span id="result-placeholder" class="result-placeholder">A little chance. A lot less overthinking.</span>
+      </div>
+      <div id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+      <section class="history" aria-label="Toss history">
+        <div class="history-heading"><span>RECENT TOSSES</span><button id="clear-history" type="button" aria-label="Clear toss history" hidden>Clear</button></div>
+        <div id="history-marks" class="history-marks" aria-label="No tosses yet"><span class="history-empty">Your tosses will appear here</span></div>
+        <div class="history-counts"><span>HEADS <strong id="heads-count">0</strong></span><span>TAILS <strong id="tails-count">0</strong></span><span>TOTAL <strong id="total-count">0</strong></span></div>
+      </section>
+    </main>
+    <footer>LET THE COIN DECIDE.</footer>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
